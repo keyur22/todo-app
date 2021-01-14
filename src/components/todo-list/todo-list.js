@@ -1,5 +1,5 @@
 import React from 'react';
-import {ListGroup} from 'react-bootstrap';
+import {ListGroup, Jumbotron} from 'react-bootstrap';
 import Checkbox from 'react-custom-checkbox';
 import * as Icon from 'react-icons/fi';
 import {FaPen, FaTimes} from 'react-icons/fa';
@@ -7,9 +7,12 @@ import {FaPen, FaTimes} from 'react-icons/fa';
 import './todo-list.scss';
 
 const TodoList = () => (
-  <div className='todo-list-container py-4'>
+  <div className='todo-list-container pb-4 py-md-4'>
     <div className='title text-secondary mb-4'>Todo List</div>
-    <ListGroup>
+    <Jumbotron fluid className='border rounded mb-0'>
+      <p className='text-center px-3'>Your todo list is empty!</p>
+    </Jumbotron>
+    {/* <ListGroup>
       {[1, 2, 3, 4, 5].map(() => (
         <ListGroup.Item>
           <span className='name pr-2'>
@@ -40,7 +43,7 @@ const TodoList = () => (
           </span>
         </ListGroup.Item>
       ))}
-    </ListGroup>
+    </ListGroup> */}
   </div>
 );
 

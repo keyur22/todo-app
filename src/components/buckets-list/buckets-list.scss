@@ -6,22 +6,17 @@
   }
 
   .buckets-list {
-    display: flex;
-    flex-direction: column;
-
-    .item {
+    .list-group-item {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       flex-basis: 100%;
-      padding: 0.75rem 1.25rem;
 
       .name {
-        flex-basis: 80%;
+        flex-basis: 75%;
       }
 
       .actions {
-        flex-basis: 20%;
+        flex-basis: 25%;
         text-align: right;
       }
 
@@ -30,9 +25,9 @@
       }
     }
 
-    @media (max-width: 768px) {
-      flex-direction: row;
-      flex-wrap: wrap;
-    }
+    // @media (max-width: 768px) {
+    //   flex-direction: row;
+    //   flex-wrap: wrap;
+    // }
   }
 }
