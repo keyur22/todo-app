@@ -1,0 +1,17 @@
+.add-container {
+  display: flex;
+  justify-content: space-around;
+
+  button {
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-left: 5px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    justify-content: space-between;
+  }
+}

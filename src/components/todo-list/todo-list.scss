@@ -1,0 +1,37 @@
+.todo-list-container {
+  .title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .list-group-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-basis: 100%;
+
+    .name {
+      flex-basis: 85%;
+    }
+
+    .actions {
+      flex-basis: 15%;
+      text-align: right;
+    }
+
+    label {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 576px) {
+      .name {
+        flex-basis: 80%;
+      }
+
+      .actions {
+        flex-basis: 20%;
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+.buckets-list-container {
+  .title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .buckets-list {
+    display: flex;
+    flex-direction: column;
+
+    .item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-basis: 100%;
+      padding: 0.75rem 1.25rem;
+
+      .name {
+        flex-basis: 80%;
+      }
+
+      .actions {
+        flex-basis: 20%;
+        text-align: right;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+}
