@@ -1,7 +1,7 @@
 import React from 'react';
-import {Container, Row, Col} from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 
-import AddContainer from '../../components/add-container/add-container';
+import AddButtonsContainer from '../../components/add-buttons-container/add-buttons-container';
 import BucketsList from '../../components/buckets-list/buckets-list';
 import TodoList from '../../components/todo-list/todo-list';
 
@@ -9,7 +9,7 @@ const HomePage = () => (
   <Container className=''>
     <Row>
       <Col md={12}>
-        <AddContainer />
+        <AddButtonsContainer />
       </Col>
       <Col md={4}>
         <BucketsList />

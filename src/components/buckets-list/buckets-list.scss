@@ -13,21 +13,21 @@
 
       .name {
         flex-basis: 75%;
+        cursor: pointer;
       }
 
       .actions {
         flex-basis: 25%;
         text-align: right;
+
+        svg {
+          cursor: pointer;
+        }
       }
 
       &:last-child {
         margin-bottom: 0;
       }
     }
-
-    // @media (max-width: 768px) {
-    //   flex-direction: row;
-    //   flex-wrap: wrap;
-    // }
   }
 }
