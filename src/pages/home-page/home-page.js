@@ -6,7 +6,7 @@ import BucketsList from '../../components/buckets-list/buckets-list';
 import TodoList from '../../components/todo-list/todo-list';
 
 const HomePage = () => (
-  <Container className=''>
+  <Container>
     <Row>
       <Col md={12}>
         <AddButtonsContainer />

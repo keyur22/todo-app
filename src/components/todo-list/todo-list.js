@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { ListGroup, Jumbotron } from 'react-bootstrap';
@@ -12,7 +13,6 @@ import { getActiveBucketId } from '../../redux/buckets/buckets-selectors';
 import './todo-list.scss';
 
 const TodoList = ({ todos, activeBucketId }) => {
-  console.log(todos);
   const todosList = todos.filter((todo) => todo.bucketId === activeBucketId);
 
   return (
@@ -58,6 +58,11 @@ const TodoList = ({ todos, activeBucketId }) => {
       )}
     </div>
   );
+};
+
+TodoList.propTypes = {
+  todos: PropTypes.array.isRequired,
+  activeBucketId: PropTypes.number.isRequired
 };
 
 const mapStateToProps = createStructuredSelector({

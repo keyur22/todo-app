@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { Form, Button } from 'react-bootstrap';
@@ -55,13 +56,11 @@ const AddListTypeContainer = ({
             value={selectedBucketId}
             onChange={onChangeValue}
           >
-            {buckets.map(({ id, name }) => {
-              return (
-                <option key={id} value={id}>
-                  {name}
-                </option>
-              );
-            })}
+            {buckets.map(({ id, name }) => (
+              <option key={id} value={id}>
+                {name}
+              </option>
+            ))}
           </Form.Control>
         </Form.Group>
       ) : null}
@@ -87,6 +86,11 @@ const AddListTypeContainer = ({
       </div>
     </Form>
   );
+};
+
+AddListTypeContainer.propTypes = {
+  buckets: PropTypes.array.isRequired,
+  activeBucketId: PropTypes.number.isRequired
 };
 
 const mapStateToProps = createStructuredSelector({

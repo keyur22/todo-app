@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { createStructuredSelector } from 'reselect';
 import { ListGroup } from 'react-bootstrap';
 import { FaPen, FaTimes } from 'react-icons/fa';
@@ -29,6 +30,11 @@ const BucketsList = ({ buckets, setActiveBucket, activeBucketId }) => {
       </div>
     </div>
   );
+};
+
+BucketsList.propTypes = {
+  buckets: PropTypes.array.isRequired,
+  activeBucketId: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = createStructuredSelector({
