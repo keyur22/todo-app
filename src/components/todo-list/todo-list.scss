@@ -13,11 +13,16 @@
 
     .name {
       flex-basis: 85%;
+      cursor: pointer;
     }
 
     .actions {
       flex-basis: 15%;
       text-align: right;
+
+      svg {
+        cursor: pointer;
+      }
     }
 
     label {

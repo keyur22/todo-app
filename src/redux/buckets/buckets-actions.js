@@ -14,3 +14,8 @@ export const setActiveBucket = (bucketId) => ({
   type: bucketsActionTypes.SET_ACTIVE_BUCKET,
   payload: bucketId
 });
+
+export const editBucket = (bucket) => ({
+  type: bucketsActionTypes.EDIT_BUCKET,
+  payload: bucket
+});

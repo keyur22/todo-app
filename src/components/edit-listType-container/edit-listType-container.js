@@ -4,21 +4,22 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { Form, Button } from 'react-bootstrap';
 
-import { getBucketsList, getActiveBucketId } from '../../redux/buckets/buckets-selectors';
-import { addBucket } from '../../redux/buckets/buckets-actions';
-import { addTodo } from '../../redux/todos/todos-actions';
+import { getBucketsList } from '../../redux/buckets/buckets-selectors';
+import { editBucket } from '../../redux/buckets/buckets-actions';
+import { editTodo } from '../../redux/todos/todos-actions';
 
-const AddListTypeContainer = ({
+const EditListTypeContainer = ({
   listType,
   onHide,
-  addBucket,
-  addTodo,
-  buckets,
-  activeBucketId
+  currentData,
+  editBucket,
+  editTodo,
+  buckets
 }) => {
+  const { id, name: currentName, bucketId } = currentData;
   const [validated, setValidated] = useState(false);
-  const [name, setName] = useState('');
-  const [selectedBucketId, setSelectedBucket] = useState(activeBucketId);
+  const [name, setName] = useState(currentName);
+  const [selectedBucketId, setSelectedBucket] = useState(bucketId);
 
   const onChangeValue = (e) => {
     const { name, value } = e.target;
@@ -37,7 +38,7 @@ const AddListTypeContainer = ({
     setValidated(true);
 
     if (name) {
-      listType === 'bucket' ? addBucket(name) : addTodo({ name, selectedBucketId });
+      listType === 'bucket' ? editBucket(id, name) : editTodo(id, name, selectedBucketId);
       onHide();
     }
   };
@@ -86,23 +87,22 @@ const AddListTypeContainer = ({
   );
 };
 
-AddListTypeContainer.propTypes = {
+EditListTypeContainer.propTypes = {
   buckets: PropTypes.array.isRequired,
-  activeBucketId: PropTypes.number.isRequired,
+  editBucket: PropTypes.func.isRequired,
+  editTodo: PropTypes.func.isRequired,
   listType: PropTypes.string.isRequired,
   onHide: PropTypes.func.isRequired,
-  addBucket: PropTypes.func.isRequired,
-  addTodo: PropTypes.func.isRequired
+  currentData: PropTypes.object.isRequired
 };
 
 const mapStateToProps = createStructuredSelector({
-  buckets: getBucketsList,
-  activeBucketId: getActiveBucketId
+  buckets: getBucketsList
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addBucket: (name) => dispatch(addBucket(name)),
-  addTodo: (name) => dispatch(addTodo(name))
+  editBucket: (id, name) => dispatch(editBucket({ id, name })),
+  editTodo: (id, name, selectedBucketId) => dispatch(editTodo({ id, name, selectedBucketId }))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddListTypeContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(EditListTypeContainer);
